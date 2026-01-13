@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.keymap.set('n', '<leader>cd', vim.cmd.Ex)
 vim.g.tmux_navigator_disable_when_zoomed = 1
-
+vim.keymap.set('i', '<Tab>', '<Tab>', { noremap = true })
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
@@ -677,7 +677,7 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         -- rust_analyzer = {},
-        pyright = {},
+        pyrefly = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -685,6 +685,18 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         ts_ls = {},
+        tailwindcss = {
+          settings = {
+            tailwindCSS = {
+              experimental = {
+                classRegex = {
+                  '.*Classes\\s*=\\s*["\'`]([^"\'`]*)["\'`]',
+                },
+              },
+              classAttributes = { 'class', 'className', 'classes' },
+            },
+          },
+        },
         --
 
         lua_ls = {
